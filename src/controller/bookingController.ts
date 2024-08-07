@@ -8,7 +8,7 @@ class BookingController {
             const bookingData:IBooking = req.body;
             const booking = await BookingService.bookSeat(bookingData);
             res.status(201).json(booking);
-        } catch (error: any) {
+        } catch (error) {
             next(error);
         }
     }

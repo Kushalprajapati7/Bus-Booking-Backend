@@ -6,7 +6,7 @@ class UserController {
         try {
             const newUser = await userService.addUser(req.body);
             res.status(201).json(newUser)
-        } catch (error: any) {
+        } catch (error) {
             next(error)
         }
     }
@@ -18,7 +18,7 @@ class UserController {
                 return
             }
             res.status(200).json(allUser)
-        } catch (error: any) {
+        } catch (error) {
             next(error)
         }
     }
@@ -27,7 +27,7 @@ class UserController {
             const userId = req.params.id;
             await userService.deleteUser(userId)
             res.status(200).json({message:"User Deleted"})
-        } catch (error: any) {
+        } catch (error) {
             next(error)
         }
     }
@@ -36,7 +36,7 @@ class UserController {
             const userId = req.params.id;
             const user = await userService.userById(userId)
             res.status(200).json(user)
-        } catch (error: any) {
+        } catch (error) {
             next(error)
         }
     }
@@ -46,7 +46,7 @@ class UserController {
             const userData = req.body;
             const updatedUser = await userService.updateUser(userId, userData)
             res.json(updatedUser)
-        } catch (error: any) {
+        } catch (error) {
             next(error)
         }
     }

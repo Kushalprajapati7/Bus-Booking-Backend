@@ -6,7 +6,7 @@ class RouteController {
     try {
       const newRoute = await routesService.addRoute(req.body);
       res.status(201).json(newRoute);
-    } catch (error: any) {
+    } catch (error) {
       next(error);
     }
   }
@@ -25,7 +25,7 @@ class RouteController {
       const routeId = req.params.id;
       await routesService.deleteRoute(routeId);
       res.status(200).json({ message: "Route Deleted" });
-    } catch (error: any) {
+    } catch (error) {
       next(error);
     }
   }
@@ -39,7 +39,7 @@ class RouteController {
         return;
       }
       res.status(200).json(route);
-    } catch (error: any) {
+    } catch (error) {
       next(error);
     }
   }
@@ -50,7 +50,7 @@ class RouteController {
       const routeData = req.body;
       const updatedRoute = await routesService.updateRoute(routeId, routeData);
       res.json(updatedRoute);
-    } catch (error: any) {
+    } catch (error) {
       next(error);
     }
   }
